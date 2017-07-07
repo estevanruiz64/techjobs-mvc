@@ -27,5 +27,20 @@
         </div>
     </div>
 
+    <div th:fragment="list-jobs">
+        <p>
+        <span th:each="job : ${jobs}">
+            <table class="job-listing">
+                <span th:each="key : ${job.keySet()}">
+                <tr>
+                    <td th:text="${#strings.capitalizeWords(key)}"></td>
+                    <td th:text="${job.get(key)}"></td>
+                </tr>
+                </span>
+            </table>
+        </span>
+        </p>
+    </div>
+
 </body>
 </html>
